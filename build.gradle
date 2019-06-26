@@ -1,0 +1,23 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.6.RELEASE'
+	id 'java'
+	id "au.com.dius.pact" version "3.6.0-rc.1"
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.tw'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testCompile group: 'au.com.dius', name: 'pact-jvm-consumer-junit_2.12', version: '3.6.7'
+	testCompile group: 'au.com.dius', name: 'pact-jvm-consumer-java8_2.12', version: '3.6.7'
+}
